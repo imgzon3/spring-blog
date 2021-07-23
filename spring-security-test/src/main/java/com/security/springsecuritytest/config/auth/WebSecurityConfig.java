@@ -1,5 +1,6 @@
 package com.security.springsecuritytest.config.auth;
 
+import com.security.springsecuritytest.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
