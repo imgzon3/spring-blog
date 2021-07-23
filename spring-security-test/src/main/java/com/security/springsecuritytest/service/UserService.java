@@ -2,9 +2,11 @@ package com.security.springsecuritytest.service;
 
 import com.security.springsecuritytest.domain.user.UserInfo;
 import com.security.springsecuritytest.domain.user.UserRepository;
+import com.security.springsecuritytest.web.dto.UserInfoDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -19,5 +21,15 @@ public class UserService implements UserDetailsService {
     public UserInfo loadUserByUsername(String email) throws UsernameNotFoundException {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(email));
+    }
+
+    public Long save(UserInfoDto infoDto) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        infoDto.setPassword(encoder.encode(infoDto.getPassword()));
+
+        return userRepository.save(UserInfo.builder()
+        .email(infoDto.getEmail())
+        .auth(infoDto.getAuth())
+        .password(infoDto.getPassword()).build()).getCode();
     }
 }
