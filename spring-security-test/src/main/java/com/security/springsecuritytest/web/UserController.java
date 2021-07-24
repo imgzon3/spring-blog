@@ -12,7 +12,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/user") // signup api
     public String signup(UserInfoDto infoDto) {
         userService.save(infoDto);
         return "login";
