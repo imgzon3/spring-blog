@@ -21,14 +21,14 @@ public class UserController {
     @PostMapping("/user") // signup api
     public String signup(UserInfoDto infoDto) {
         userService.save(infoDto);
-        return "login";
+        return "redirect:/";
     }
 
     @GetMapping("/logout") // logout by GET 요청
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder
                 .getContext().getAuthentication());
-        return "login";
+        return "redirect:/";
     }
 
 }
