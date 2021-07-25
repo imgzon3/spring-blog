@@ -1,4 +1,4 @@
-package com.security.springsecuritytest.config.auth;
+package com.security.springsecuritytest.config;
 
 import com.security.springsecuritytest.service.UserService;
 import lombok.RequiredArgsConstructor;
