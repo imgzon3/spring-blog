@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+// Session 기능 확인하기 위한 test session
 @Slf4j // 로그 보기 위한 어노테이션
 @RestController
 public class TestController {
