@@ -22,6 +22,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         throws Exception {
         log.info("preHandle!!");
 
+        // 권한이 있고, USER 권한일 경우
         if((request.getSession().getAttribute(KEY_ROLE) != null )
                 && request.getSession().getAttribute(KEY_ROLE).equals(Role.USER.name())) {
             return true;
