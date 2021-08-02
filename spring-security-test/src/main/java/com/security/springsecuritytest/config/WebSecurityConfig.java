@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    // 로그인 시 필요한 정보를 가져옴
+    // 로그인 시 필요한 정보를 가져오기
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService) // 유저 정보는 userService 에서 가져온다
                 .passwordEncoder(new BCryptPasswordEncoder()); // 패스워드 인코더는 passwordEncoder(BCrypt 사용)
