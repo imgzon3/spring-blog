@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<CommonResponse> handleCustomAuthenticationException(CustomAuthenticationException e) {
 
         log.info("handleCustomAuthenticationException", e);
-
+        // 에러 발생 시
         CommonResponse response = CommonResponse.builder()
                 .code(ErrorCode.AUTHENTICATION_FAILED.getCode())
                 .message(e.getMessage())
