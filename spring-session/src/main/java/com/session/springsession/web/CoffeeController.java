@@ -18,6 +18,7 @@ public class CoffeeController {
 
     private final CoffeeService coffeeService;
 
+    // log info
     @GetMapping("/api/v1/coffees")
     public List<CoffeeDto> getAllCoffees(HttpSession session) {
         log.info(session.getId());
